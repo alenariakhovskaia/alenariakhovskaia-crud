@@ -1,0 +1,37 @@
+<%-include('./partials/head.ejs')-%>
+<div class="section">
+    <div class="row valign-wrapper">
+      <div class="container">
+      </div>
+    </div>
+</div>
+
+<div id="content">
+    <div class="container post-container">
+
+        <div class="row">
+            <% if(blogs.length > 0) { %>
+            <% blogs.forEach( blog => { %>
+                    <div class="col s12 m6 l8">
+                        <div class="card">
+                            <div class="card-img">
+                                <img src="<%= blog.picture %>"  class="responsive-img">
+                            </div>
+                            <div class="card-content">
+                                    <p  style="width: 135px;"  class="post-date truncate"><%= blog.date %></p>
+                                    <a href="/posts/<%=blog._id%>" class=" title  teal-text accent-3">
+                                        <h5 class="post-title"><%= blog.title %></h5>
+                                    </a>
+                                    <div class="post-content">
+                                        <p class="truncate"> <%= blog.subhead %> </p>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+            <% }) %>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<%-include('./partials/footer.ejs')-%>

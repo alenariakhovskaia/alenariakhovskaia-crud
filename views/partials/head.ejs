@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Alena Riakhovskaia</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale= 1" />
+  </head>
+
+  <body>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper black">
+          <div class="container">
+            <a class="brand-logo teal-text accent-2" href="/">CMS Article</a>
+            <ul class="header-nav right">
+               <% if(user) { %>
+              <li><a href="/profile">Profile</a></li>
+              <li><a href="/create">Create Article</a></li>
+              <li><a href="/logout">Logout</a></li>
+              <% } else { %>
+              <li><a href="/login">Login</a></li>
+              <li><a class="btn-small red darken-4 white-text" href="/signup">Sign up</a></li>
+              <% } %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>

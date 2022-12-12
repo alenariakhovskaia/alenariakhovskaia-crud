@@ -1,0 +1,53 @@
+<%-include('./partials/head_article.ejs')-%>
+
+<div class="container">
+  <h6 class="right-align">Welcome, <%= user.firstname %></h6>
+  <div id="post-id" style="visibility: hidden;"><%= post.id%></div>
+</div>
+<div class="container">
+  <h3>Edit a article</h3>
+  <div class="container">
+    <form action="/posts/<%= post.id%>/edit" method="POST" enctype="multipart/form-data">
+      <div class="row">
+        <div class="input-field">
+          <img src="/<%= post.picture %>" width="350" class="responsive-img" />
+          <h6>Add an Image</h6>
+          <input type="file" id="file" name="file" value="<%= post.picture %>"/>
+          <br>
+          <br>
+          <div id="file_error" class="file error">Please enter a file</div>
+        </div>
+      </div>]
+      <br>
+      <div class="row">
+        <div class="input-field">
+          <label for="title_article">Article headline</label>
+          <input type="text" id="title_article" name="title" value="<%= post.title %>" />
+          <div id="title_error" style="display: none;" class="title error">Please enter a headline</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field">
+          <label for="subhead">subhead</label>
+          <input type="text" id="subhead" name="subhead" value="<%= post.subhead %>"/>
+          <div id="subhead_error" style="display: none;" class="subhead error">Please enter a subhead</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field">
+          <label for="content">content</label>
+          <textarea type="text" id="content" name="content"><%= post.content %></textarea>
+          <div id="content_error" style="display: none;" class="content error">Please enter a content</div>
+        </div>
+      </div>
+      <div>
+        <input type="hidden" value="<%= user.email %>" name="author" />
+        <input type="hidden" value="<%= user.profile_img %>" name="author_pic" />
+        <input type="hidden" value="<%= user.id %>" name="author_id" />
+      </div>
+      <br>
+      <button id="article" type="submit" disabled>update</button>
+    </form>
+  </div>
+</div>
+<%-include('./partials/footer.ejs')-%>

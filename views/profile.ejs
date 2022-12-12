@@ -1,0 +1,85 @@
+<%-include('./partials/head.ejs')-%>
+<div class="container">
+  <div>
+    <input id="user-id" type="hidden" value="<%= user.id%>" name="user_id" />
+  </div>
+  <br/>
+  <button
+    id="user-delete-btn"
+    class="btn-small waves-effect waves-dark red right"
+    >Delete user</a>
+  </button>
+</div>
+<div class=" form-centered">
+  <div class="container">
+    <h2 class="letf-align">Profile</h2>
+    <div class="card">
+    </div>
+    <div class="row">
+      <div class="card">
+        <div class="col s12 m6 l6 push-l6">
+        </div>
+      <div class="col s12 m6 l6 pull-l5">
+        <div class="container">
+          <form action="/user/<%= user.id%>/edit" method="POST" enctype="multipart/form-data">
+            <% if(user.profile_img) { %>
+                <div class="card-img">
+                  <img src="<%= user.profile_img %>"  class="responsive-img">
+                </div>
+              <% } else { %>
+                <div class="card-img">
+                  <img src="img/default-avatar.png"  class="responsive-img">
+                </div>
+              <% } %>
+            <div class="row">
+              <div class="input-field">
+                <h6>Add an Image</h6>
+                <input type="file" id="file" name="file"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" value="<%= user.email %>"/>
+                <div id="email_error"  style="display: none;" class="email error">Please enter a valid email</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field">
+                <label for="firstname">Firstname</label>
+                <input type="text" id="firstname" name="firstname" value="<%= user.firstname %>"/>
+                <div id="firstname_error" style="display: none;" class="firstname error">Please enter a firstname</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field">                
+                <label for="lastname">Lastname</label>
+                <input type="text" id="lastname" name="lastname" value="<%= user.lastname %>"/>
+                <div  id="lastname_error" style="display: none;"  class="lastname error">Please enter a lastname</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" min="6" max="10"/>
+                <div id="password_error" class="password error">Minimum password length is 6 characters</div>
+              </div>
+            </div>
+            <button id="update_user" disabled>update</button>
+          </form>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+<!-- Ajax Loader -->
+<div class="display-loader__two">
+  <div class="background-loader">
+    <div id="loader"></div>
+    <div id="loader-two"></div>
+  </div>
+</div>
+  
+<%-include('./partials/footer.ejs')-%>

@@ -1,0 +1,60 @@
+<%-include('./partials/head.ejs')-%>
+
+<div class=" form-centered">
+  <div class="container">
+    <h2 class="letf-align">Sign up</h2>
+    <div class="card">
+    </div>
+    <div class="row">
+      <div class="card">
+        <div class="col s12 m6 l6 push-l6">
+        </div>
+      <div class="col s12 m6 l6 pull-l5">
+        <div class="container">
+          <form id="signup-form">
+            <div class="row">
+              <div class="input-field">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" />
+                <div class="email error"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field">
+                <label for="firstname">Firstname</label>
+                <input type="text" id="firstname" name="firstname" />
+                <div class="firstname error"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field">                
+                <label for="lastname">Lastname</label>
+                <input type="text" id="lastname" name="lastname" />
+                <div class="lastname error"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" />
+                <div class="password error"></div>
+              </div>
+            </div>
+            <button>sumbit</button>
+          </form>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+<!-- Ajax Loader -->
+<div class="display-loader__two">
+  <div class="background-loader">
+    <div id="loader"></div>
+    <div id="loader-two"></div>
+  </div>
+</div>
+
+<%-include('./partials/footer.ejs')-%>
